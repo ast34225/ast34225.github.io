@@ -1,0 +1,128 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #ffffff;
+$subColor: #f5f5f5;
+$keyColor: #00bfff;
+$fontColor: #696969;
+
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  letter-spacing: 0.1em;
+  background-color: $baseColor;
+}
+
+.text-center {
+  @extend .abel;
+  color: $keyColor;
+  text-align: center;
+}
+
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+
+section {
+  padding: 20px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+}
+
+#contact {
+  background-color: $baseColor;
+  text-align: center;
+  padding: 40px;
+  
+  h1 {
+    color: $fontColor;
+    font-size: 2.0rem;
+  }
+}
+.button {
+  @extend .abel;
+  background: $subColor;
+  border-radius: 4px;
+  @extend .block-center;
+  width: 20%;
+  padding: 5px;
+  margin-top: 10px;
+  text-decoration: none; /* リンクの下線を消す */
+}
+
+header {
+  .picture {
+    background-image: url("../images/img_shop_image.jpg");
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+#menu {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);    // スキルボックスを縦に並べる
+  }
+  h2 {
+    @extend .abel;
+    color: $fontColor;
+    font-size: 4.0rem;
+  }
+  .menu-box {
+    @include flex(1);
+    margin: 10px 0;                     // 上下にマージン
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  h3 {
+    @extend .abel;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+  p {
+    color: $fontColor;
+  }
+}
+
+// desktop
+@media (min-width: 769px) {
+  
+  // Menu
+  #menu {
+    .container {
+      @include flex-direction(row);     // スキルボックスを横に並べる
+      justify-content: space-between;
+    }
+    .menu-box {
+      margin: 0 10px;                   // 左右にマージン
+    }
+  }
+  header {
+    .picture {
+    height: 500px;
+    }
+  }
+}
